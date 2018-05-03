@@ -1,27 +1,38 @@
 <template>
   <div id="app">
     <v-app>
-      <nav-menu></nav-menu>
-      <nav-bar></nav-bar>
-      <HelloWorld/>
+      <nav-bar :menu="menus" :profile="user"></nav-bar>
+      <Content></Content>
       <footer></footer>
     </v-app>
   </div>
 </template>
 
 <script>
-import NavBar from './components/layouts/Navbar.vue';
-import NavMenu from './components/layouts/NavMenu.vue';
+import NavBar from './components/layouts/NavBar.vue';
 import Footer from './components/layouts/Footer.vue';
-import HelloWorld from "./components/HelloWorld.vue";
+import Content from "./components/Content.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
+    Content,
     NavBar,
-    NavMenu,
     Footer
+  },
+
+  data() {
+    return {
+      user: {
+        name: 'John Leider',
+        photo: 'https://randomuser.me/api/portraits/men/85.jpg'
+      },
+
+      menus: [
+        { title: "Home", icon: "dashboard" },
+        { title: "About", icon: "question_answer" }
+      ]
+    }
   }
 };
 </script>
