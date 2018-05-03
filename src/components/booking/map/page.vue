@@ -1,5 +1,5 @@
 <template>
-  <map-layout>
+  <map-layout :pageTitle="pageTitle">
       <item-map></item-map>
       <item-map></item-map>
       <item-map></item-map>
@@ -15,6 +15,12 @@ import ItemMap from './itemMap.vue'
 
 export default {
     name: 'map-page',
+
+    data() {
+        return {
+            pageTitle: 'Select salon'   
+        }
+    },
     components: {
         MapLayout,
         ItemMap

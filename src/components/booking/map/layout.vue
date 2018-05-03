@@ -1,6 +1,6 @@
 <template>
     <v-container fluid style="min-height: 0;" grid-list-lg>
-        <h1 class="display-1">Select salon</h1>
+        <h1 class="display-1 maplayoutTitle" v-text="pageTitle"></h1>
         <v-layout row wrap>
             <slot></slot>
         </v-layout>
@@ -9,7 +9,14 @@
 
 <script>
 export default {
-    name: 'map-layout'
+    name: 'map-layout',
+
+    props: {
+        pageTitle: {
+            type: String,
+            required: true
+        }
+    }
 };
 </script>
 
