@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App!12"/>
+    <v-app>
+      <app-nav-bar :menu="menus" :profile="user"></app-nav-bar>
+      <app-content></app-content>
+      <app-footer></app-footer>
+    </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppNavBar from './components/layouts/NavBar.vue';
+import AppFooter from './components/layouts/Footer.vue';
+import AppContent from "./components/Content.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    AppNavBar,
+    AppContent,
+    AppFooter
+  },
+
+  data() {
+    return {
+      user: {
+        name: 'John Leider',
+        photo: 'https://randomuser.me/api/portraits/men/85.jpg'
+      },
+
+      menus: [
+        { title: "Home", icon: "dashboard" },
+        { title: "About", icon: "question_answer" }
+      ]
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
