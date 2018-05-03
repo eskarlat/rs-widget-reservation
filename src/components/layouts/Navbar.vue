@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "nav-bar",
+  name: "app-nav-bar",
 
   props: {
     profile: {

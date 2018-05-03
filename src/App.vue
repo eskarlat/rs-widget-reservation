@@ -1,24 +1,24 @@
 <template>
   <div id="app">
     <v-app>
-      <nav-bar :menu="menus" :profile="user"></nav-bar>
-      <Content></Content>
-      <footer></footer>
+      <app-nav-bar :menu="menus" :profile="user"></app-nav-bar>
+      <app-content></app-content>
+      <app-footer></app-footer>
     </v-app>
   </div>
 </template>
 
 <script>
-import NavBar from './components/layouts/NavBar.vue';
-import Footer from './components/layouts/Footer.vue';
-import Content from "./components/Content.vue";
+import AppNavBar from './components/layouts/NavBar.vue';
+import AppFooter from './components/layouts/Footer.vue';
+import AppContent from "./components/Content.vue";
 
 export default {
   name: "app",
   components: {
-    Content,
-    NavBar,
-    Footer
+    AppNavBar,
+    AppContent,
+    AppFooter
   },
 
   data() {

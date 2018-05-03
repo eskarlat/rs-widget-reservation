@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'mapPage'
+    name: 'map-layout'
 };
 </script>
 
