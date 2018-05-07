@@ -3,6 +3,10 @@
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon ref="toolbarmenu" @click.stop="openMenu"></v-toolbar-side-icon>
       <v-toolbar-title>Rocket Salon</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn v-show="isNotHome" icon @click="back">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-navigation-drawer fixed v-model="drawer" app>
       <v-toolbar flat class="transparent">
@@ -58,6 +62,16 @@ export default {
     openMenu() {
       console.log("Event: open navigation");
       this.drawer = !this.drawer;
+    },
+
+    back() {
+      this.$router.back();
+    }
+  },
+
+  computed: {
+    isNotHome() {
+      return this.$route.name != 'map'
     }
   }
 };
