@@ -62,8 +62,8 @@ export default {
       console.log("Selected salon:", item.id);
 
       this.$router.push({
-        name: "services",
-        query: { company_id: this.companyId, salon: item.id  }
+        name: "masters",
+        query: { company_id: this.companyId, salon_id: item.id  }
       });
     }
   },
