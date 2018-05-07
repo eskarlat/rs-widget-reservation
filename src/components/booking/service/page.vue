@@ -1,7 +1,7 @@
 <template>
-    <service-layout :pageTitle="pageTitle">
-        <item-service v-for="item in items" :key="item.id" :item="item"></item-service>
-    </service-layout>
+  <service-layout :pageTitle="pageTitle">
+    <item-service v-for="item in items" :key="item.pivot.id" :item="item"></item-service>
+  </service-layout>
 </template>
 
 <script>
@@ -19,12 +19,7 @@ export default {
   data() {
     return {
       pageTitle: "Select service",
-      items: [
-          {
-              id:1,
-              title: 'Man hearCut'
-          }
-      ],
+      items: [],
       success: false,
       error: false,
       errors: {}
@@ -32,36 +27,44 @@ export default {
   },
 
   created() {
-    // this.getSalons();
+    this.getServices();
   },
 
   computed: {
-    // companyId() {
-    //   return this.$route.query.company_id;
-    // }
+    companyId() {
+      return this.$route.query.company_id;
+    },
+    salonId() {
+      return this.$route.query.salon_id;
+    },
+    masterId() {
+      return this.$route.query.master_id;
+    }
   },
 
   methods: {
-    // getSalons() {
-    //   var app = this;
-    //   this.axios
-    //     .get("/salon", {
-    //       params: {
-    //         company_id: this.companyId
-    //       }
-    //     })
-    //     .then(function(response) {
-    //       console.log("Response from '/salon", response);
-    //       app.success = true;
-    //       app.items = response.data.data;
-    //     })
-    //     .catch(function(error) {
-    //       console.log(error);
-    //       app.items = [];
-    //       app.error = true;
-    //       app.errors = error.response.data.errors;
-    //     });
-    // },
+    getServices() {
+      var app = this;
+      this.axios
+        .get("/services", {
+          params: {
+            company_id: this.companyId,
+            salon_id: this.salonId,
+            master_id: this.masterId
+          }
+        })
+        .then(function(response) {
+          console.log("Response from '/services", response);
+          app.success = true;
+          app.items = response.data.data;
+        })
+        .catch(function(error) {
+          console.log(error);
+          app.items = [];
+          app.error = true;
+          app.errors = error.response.data.errors;
+        });
+    }
 
     // salonSelected(item) {
     //   console.log("Selected salon:", item.id);
@@ -72,13 +75,13 @@ export default {
     //     query: { company_id: companyId }
     //   });
     // }
-  },
+  }
 
-//   watch: {
-//     companyId: function(newCompanyId, oldCompanyId) {
-//       this.getSalons();
-//     }
-//   }
+  //   watch: {
+  //     companyId: function(newCompanyId, oldCompanyId) {
+  //       this.getSalons();
+  //     }
+  //   }
 };
 </script>
 

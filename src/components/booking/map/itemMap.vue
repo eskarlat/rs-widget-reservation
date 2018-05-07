@@ -1,17 +1,14 @@
 <template>
     <v-flex xs12>
-        <v-card>
+        <v-card :hover="true">
             <v-card-media :src="image" height="200px">
             </v-card-media>
-            <v-card-title primary-title>
+            <v-card-title primary-title @click="choseSalon">
                 <div>
                     <p class="title" v-text="item.title"></p>
                     <span class="grey--text">#####</span><br>
                 </div>
             </v-card-title>
-            <v-card-actions>
-                <v-btn flat color="red" @click="choseSalon">Select</v-btn>
-            </v-card-actions>
         </v-card>
     </v-flex>
 </template>

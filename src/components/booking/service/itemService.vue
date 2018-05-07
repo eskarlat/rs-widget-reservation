@@ -1,22 +1,27 @@
 <template>
   <v-flex xs12>
-        <v-card>
+        <v-card :hover="true">
             <v-card-title primary-title>
                 <div>
-                    <p class="title" >Service</p>
-                    <span class="grey--text">#####</span><br>
+                    <p class="title" v-text="item.title"></p>
+                    <span class="grey--text">Duration: {{ item.pivot.duration }} min</span><br>
+                    <span class="grey--text">Cost: {{ item.pivot.cost }}</span><br>
                 </div>
             </v-card-title>
-            <v-card-actions>
-                <v-btn flat color="red">Select</v-btn>
-            </v-card-actions>
         </v-card>
     </v-flex>
 </template>
 
 <script>
 export default {
-    name: 'item-service'
+    name: 'item-service',
+
+    props: {
+        item: {
+            type: Object,
+            required: true
+        }
+    },
 }
 </script>
 
