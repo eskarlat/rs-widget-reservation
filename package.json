@@ -9,9 +9,12 @@
         "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.js"
     },
     "dependencies": {
+        "@websanova/vue-auth": "^2.21.10-beta",
+        "axios": "^0.18.0",
         "babel-polyfill": "^6.26.0",
         "material-design-icons-iconfont": "^3.0.3",
         "vue": "^2.5.16",
+        "vue-axios": "^2.1.1",
         "vue-router": "^3.0.1",
         "vuetify": "^1.0.17"
     },

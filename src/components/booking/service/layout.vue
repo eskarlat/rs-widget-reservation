@@ -13,7 +13,7 @@
 import Loading from '../../loading.vue';
 
 export default {
-    name: 'map-layout',
+    name: 'service-layout',
 
     props: {
         pageTitle: {
